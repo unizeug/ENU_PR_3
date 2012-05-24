@@ -1,19 +1,234 @@
-%%This is a very basic article template.
-%%There is just one section and two subsections.
-\documentclass{article}
+\newcommand{\institut}{Institut f\"ur Telekommunikationssysteme}
+\newcommand{\fachgebiet}{Nachrichten\"ubertragung}
+\newcommand{\veranstaltung}{Praktikum Nachrichten\"ubertragung}
+\newcommand{\pdfautor}{Dirk Babendererde (321 836), Thomas Kapa (325 219)}
+\newcommand{\autor}{Dirk Babendererde (321 836)\\ Thomas Kapa (325 219)}
+\newcommand{\gruppe}{Gruppe:}
+\newcommand{\betreuer}{Betreuer: Lieven Lange}
 
-\begin{document}
+
+\newcommand{\pdftitle}{Nachrichtenuebertragung\ Praktikum\ 03}
+\newcommand{\prototitle}{Praktikum 03 \\ Statistische Nachrichtentheorie}
+
+\input{../../packages/tu_header_8}
 
 
-\section{Title}
+% \lstlistoflistings
+\definecolor{darkgray}{rgb}{0.95,0.95,0.95}
+\definecolor{darkolivegreen}{HTML}{01a801}
+\definecolor{functionsBlue}{HTML}{32b9b9}
+\definecolor{variableRed}{rgb}{1,0,0}
+\definecolor{stringBrown}{HTML}{bc8e8e} % f geht nicht
 
-\subsection{Subtitle}
+\lstset{
+        %\lstset{extendedchars=true} % Umlaute an der richtigen stelle und nicht am Anfang ausgeben
+        %basicstyle=\footnotesize\ttfamily,
+        basicstyle=\small,
+        %
+        inputencoding=utf8,
+        %
+        tabsize=4,
+        showspaces=false,
+        showtabs=false,
+        showstringspaces=true, % no special string spaces
+        %
+        backgroundcolor=\color{darkgray}, % background
+        stringstyle=\color{stringBrown}\fseries, % Strings
+        keywordstyle=\color{functionsBlue}\bfseries, % keywords Blau
+        identifierstyle=\color{variableRed}, % variablen
+        commentstyle=\color{darkolivegreen}, %  comments
+        %
+        breaklines=true,
+        %
+        numbers=left,
+        numberstyle=\tiny,
+        stepnumber=1,
+        numbersep=7pt,
+        %
+        frame=single,
+        columns=flexible,
+        %
+        xleftmargin=-2cm,
+        xrightmargin=-1.5cm,
+        %
+        language=Matlab,
+}
+% enables UTF-8 in source code: (dirty, dirty hack)
+\lstset{literate=
+    %Deutsch
+    {ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}
+    {{\"O}}1 {Ü}{{\"U}}1 {ß}{\ss}1
+    %Türkisch
+    {â}{{\^{a}}}1 {Â}{{\^{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {ğ}{{\u{g}}}1 {Ğ}{{\u{G}}}1 {ı}{{\i}}1 {İ}{{\.{I}}}1 {ö}{{\"o}}1 {Ö}{{\"O}}1 {ş}{{\c{s}}}1
+    {Ş}{{\c{S}}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1
+    %Polish
+    {ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ż}{{\.z}}1 {ź}{{\'z}}1 {Ą}{{\k{A}}}1 {Ć}{{\'C}}1
+    {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ż}{{\.Z}}1 {Ź}{{\'Z}}1
+    %Spanish
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1
+}
 
-Plain text.
+%     \lstinputlisting{./praktikum6.sce}
 
-\subsection{Another subtitle}
 
-More plain text.
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+
+\section{Vorbereitungsaufgaben}
+\begin{quote}
+    \hspace{-2em}
+    \subsection{AM}
+        
+    \begin{quote}
+        
+        Da alle Werte eines analogen Signals $\geq 0$ sein Müssen um sie mittels AM mit Träger übertragen zu können, haben wir für
+        diesen Versuch mit Matlab Cosinus-, Dreieck- und Rechtecksignale folgenden Eigenschaften erzeugt:
+        
+        
+        \begin{equation*}
+        \begin{split}
+        \\
+                 0 &\leq u(t) \leq 2.0
+        \\
+                 f &= \si{100}{Hz}
+        \\
+            \alpha &= 0.5
+        \\
+                 T &= \si{2}{s}
+        \\
+               f_T &= \si{1}{MHz}
+        \\
+        \end{split}
+        \end{equation*}
+        
+        
+        Außerdem haben wir noch ein cosinus-Trägersignal mit \si{2}{kHz} erzeugt. Auf dieses Trägersignal haben wir dann, zum
+        späteren vergleich, die erzeugten Basisbandsignale raufmoduliert.
+        
+    \end{quote}
+    
+    
+    
+    
+    \subsection{FM}
+    \begin{quote}
+        
+        
+        Zur Vorbereitung der FM-Modulation haben wir ein Cosinussignal mit folgenden Eigenschaften simuliert.
+        
+        \begin{equation*}
+        \begin{split}
+        \\
+                 0 &\leq u(t) \leq 2.0
+        \\
+                 f &= \si{100}{Hz}
+        \\
+                 T &= \si{0,5}{s}
+        \\
+               f_T &= \si{1}{MHz}
+        \\
+        \end{split}
+        \end{equation*}
+        
+        
+        Dieses Trägersignal haben wir dann mit einem weiteren cosinus ($f_u = 1kHz$ und $A_u = 1V$) nach der folgenden Formel
+        moduliert:
+        
+        \begin{equation*}
+        \begin{split}
+        \\
+                u_m(t) &= A \p cos(\varphi(t))
+        \\
+            \varphi(t) &= 2 \pi f_c t + K_{FM} \p \int\limits_{-\infty}^t u(\tau) \ d\tau  
+        \\
+        \end{split}
+        \end{equation*}
+        
+        Von diesem Modulierten Signal ($u_m$) haben wir noch, zum späteren Vergleich, mit Hilfe von Matlab das Amplitudenspektrum
+        bestimmt.
+        
+        
+        
+        
+        
+    \end{quote}
+    
+    
+    
+\end{quote}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+
+\section{1}
+\begin{quote}
+    
+    
+    \subsection{Labordurchführung}
+    \begin{quote}
+        
+        
+    \end{quote}
+    
+    
+    
+    
+    
+    \subsection{Auswertung}
+    \begin{quote}
+        
+    \end{quote}
+    
+\end{quote}
+
+
+\section{2}
+\begin{quote}
+    
+    
+    \subsection{Labordurchführung}
+    \begin{quote}
+        
+        
+    \end{quote}
+    
+    
+    
+    
+    
+    \subsection{Auswertung}
+    \begin{quote}
+        
+    \end{quote}
+    
+\end{quote}
+
+
+
+% \begin{quote}
+%     \lstinputlisting[
+%         caption={Scilab-script},
+%         label=lst:scilab]
+%         {./Scilab/Motor.sce}
+%         
+% \end{quote}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% \begin{thebibliography}{999}
+% 
+% \bibitem{Boris}Boris Henckell: Ein Paar sachen geklaut.. ähhh inspirationen geholt
+% \href{http://www.krachler.com/fileadmin/user_upload/arbeiten/Reglersynthese_Christian_Krachler.pdf}{Reglersynthese nach dem Frequenzkennlinienverfahren}, S16, S22, 08.05.2012
+% 
+% 
+% %Name, Vorname.; evtl. Name2, Vorname2.: Titel des Dokumentes
+% %oder Buches, Zeitschrift/Verlag/URL (Auflage, Erscheinungsort, -jahr), ggf. Seitenzahlen
+% %\bibitem [Wiki10] {DigitaleMesskette2} \url{www.wikipedia.org}, Zugriff 22.03.2010
+% \end{thebibliography}
 
 
 \end{document}

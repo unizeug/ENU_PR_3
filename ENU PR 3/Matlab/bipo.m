@@ -1,3 +1,5 @@
+clear
+
 %periodisches bipolars Rechtecksignal
 %Amplitude: 2V
 A = 1.0;
