@@ -36,18 +36,17 @@ T_ges = 0.5;
 
 % u
 f = 1000;
+t = 0:(1/f_T):T_ges;
+N = round(f_T*T_ges);
+um = zeros(1,N);
 
+u = cos(2*pi*f.*t);%cosinus(A, 0.5, f, f_T, T_ges);
 
-u = cosinus(A, 0.5, f, f_T, T_ges);
-
-K_FM = 1;
+K_FM = 1/200;
 
 
 integ = cumsum(u);
 
-t = 0:(1/f_T):T_ges;
-N = round(f_T*T_ges);
-um = zeros(1,N);
 
 
 for k = 1:N
@@ -55,11 +54,9 @@ for k = 1:N
     % phi = 2*pi*f_c*t + integ(t)
     um(k) = A * cos(2*pi*fc*t(k) + K_FM *integ(k));
     
-
-
 end;
 
 
 plotFFT(u, T_ges, f_T, A, 2)
 
-plotFFT(um, T_ges, f_T, A, 3)
+FFTshiftplot(um, T_ges, f_T, A,'r', 3)
