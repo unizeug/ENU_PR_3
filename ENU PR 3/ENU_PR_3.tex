@@ -177,13 +177,24 @@
 %--------------------------------------------------------------------
 
 
-\section{1}
+\section{1 Amplitudenmodulation}
 \begin{quote}
     
     
     \subsection{Labordurchführung}
     \begin{quote}
-        
+      Das mit Hilfe von Amplitudenmodulation zu übertragende Signal soll ein
+      Sinussignal mit Amplitude von 1 V, einer Frequenz von 100 Hz, 
+      mittelwertfrei sein und von Funktionsgenerator geliefert werden.
+      Um das Signal von negativen Werten zu befreien (siehe Vorbereitung) wird
+      das Signal mit Hilfe des Adder-Moduls und der variablen DC Voltage Quelle
+      um ein Volt angehoben. Da das Adder-Modul den Ausgang invertiert, wird der
+      Ausgang des ersten Adders auf einen zweiten Adder gegeben und der zweite
+      Eingang auf Masse gelegt, um das Signal zu invertieren. //
+      Um Trägersignal und das zu übertragende Signal zu überlagern wird das
+      Multiplier-Modul verwendet. Dabei liefert das Master-Signal-Modul ein 2
+      kHz Sinussignal, das als Trägersignal dient, das mit dem zu übertragenden
+      Signal multipliziert wird.
         
     \end{quote}
     
