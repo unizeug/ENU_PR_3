@@ -14,7 +14,8 @@ y_DFT = fftshift(fft(y));
 %y_DFT = fftshift(y_DFT);
 N = length(y);
 %Betragsspektrum
-y_DFT_abs = 10*LOG10(abs(y_DFT))/N;
+%y_DFT_abs = 10*LOG10(abs(y_DFT)/N);
+y_DFT_abs = abs(y_DFT)/N;
 %Phasenspektrum
 y_DFT_phase = unwrap(angle(y_DFT))/N;
 %Zeitachse
@@ -34,7 +35,7 @@ ylabel('u/V');
 subplot(3,1,2);
 STEM(f_DFT, y_DFT_abs,'.-');
 %AXIS([-200 200 0 8])
-xlim ([-500 500])
+%xlim ([-500 500])
 title('Amplitudenspektrum');
 xlabel('f/Hz');
 ylabel('A(f)[dB]');    
