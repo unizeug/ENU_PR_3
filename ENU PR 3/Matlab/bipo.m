@@ -12,35 +12,46 @@ f = 100;
 fc = 2000;
 %DutyCycle: 0 < alpha < 1
 alpha = 0.5;
-%Berechnung des Rechtecksigals
-r = rechteck(A, 0.5, f, f_T, T_ges);
 
-d = dreieck(A, 0.5, f, f_T, T_ges);
 
+
+%      // AM //      %
+
+
+%Berechnung der Signale mit offset
+r = rechteck(A, 0.5, f, f_T, T_ges) +1;
+
+d = dreieck(A, 0.5, f, f_T, T_ges) +1;
+
+s = cosinus(A, 0.5, f, f_T, T_ges) +1;
+
+
+% carrier
 c = cosinus(A, 0.5, fc, f_T, T_ges);
 
 
-
+% Moduliert
 % plotFFT(c.*d, T_ges, f_T, A, 1)
-% 
-% 
+
+% modem
 % plotFFT(1/2.*c.*d.*c, T_ges, f_T, A, 2)
 
-% 
+% carrier
 % plotFFT(c, T_ges, f_T, A, 3)
 
 
 
-%Dauer des Signals: 1.0s
+
+%      // FM //      %
+
 T_ges = 0.5;
 
-% u
 f = 1000;
 t = 0:(1/f_T):T_ges;
 N = round(f_T*T_ges);
 um = zeros(1,N);
 
-u = cos(2*pi*f.*t);%cosinus(A, 0.5, f, f_T, T_ges);
+u = cos(2*pi*f.*t); %cosinus(A, 0.5, f, f_T, T_ges);
 
 K_FM = 1/200;
 
