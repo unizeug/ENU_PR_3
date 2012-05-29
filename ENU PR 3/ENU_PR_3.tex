@@ -156,17 +156,7 @@
     
     \subsection{Theorie zur FM-Demodulation}
     \begin{quote}
-        Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
-        Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
-        Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
-        einem positiven Rechteck wird und jede negative zu einem Negativen.\\
-        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
-        Rechteckimpuls macht.\\
-        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
-        einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
-        Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
-        machen.
-        \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
+        
         
     \end{quote}
     
@@ -219,6 +209,79 @@
     
     \subsection{Labordurchführung}
     \begin{quote}
+        
+        Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
+        Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
+        Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
+        einem positiven Rechteck wird und jede negative zu einem Negativen.\\
+        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
+        Rechteckimpuls macht.\\
+        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
+        einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
+        Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
+        machen.
+        \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
+        
+        \subsubsection{FM Frequenzanalyse}
+        Untersucht weiterhin das Spektrum des FM-Signals und bestimmt die Trägerfrequenz $f_c$ sowie die
+        Proportionalitätskonstante $K_{FM}$. Nehmt dabei zum späteren Vergleich das Spektrum für $f_u$ = 1kHz und $A_u$ = 1V auf.
+        
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-3.3cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:Tmax}
+                    \includegraphics[scale=0.25, trim = 0mm 0mm 0mm 0mm, clip]{Bilder/Tmax}
+                    \caption{Tmax = $61,1 \mu s$}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:Tmin}
+                    \includegraphics[scale=0.25, trim = 0mm 0mm 0mm 0mm, clip]{Bilder/Tmin}
+                    \caption{Tmin = $41,4 \mu s$}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        
+        \begin{quote}
+            
+            
+            
+            
+            \begin{equation*}
+            \begin{split}
+            \\
+                \Delta f_{max} &\approx \frac{1}{2} (\frac{1}{T_{min}} - \frac{1}{T_{max}})\\
+                               &= \frac{1}{2} (\frac{1}{41,4 \mu s} -\frac{1}{61,1 \mu s})\\
+                               &= 3894 \frac{1}{s}\\
+            \\
+                K_{FM} &=\frac{2 \pi \Delta f_{max}}{A_u}\\
+                       &= \frac{2 \pi \p 3894 \frac{1}{s}}{1V}\\
+                       &= 24467 \frac{1}{Vs}
+            \\
+            \end{split}
+            \end{equation*}
+            
+            
+            Trägerfrequenz ist 10kHz
+            
+            
+            
+        \end{quote}
+
+
+        
         
         
     \end{quote}

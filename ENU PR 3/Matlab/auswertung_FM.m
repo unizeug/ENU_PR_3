@@ -39,12 +39,43 @@ f50_2 = load('../Messwerte/fre_50Hz_2V.mat');
 % ich denke mal, man muss T_ges und f_T nicht jedes mal neu berechnen. wir
 % haben ja nihct an den aufnahmeeinstellungen geändert oder? 
 
-S = sin_modem;
+S = f100_05;
 
+
+% 
+% % Zeropadding um die Frequenzauflösung besser zu machen
+% y = zeros(S.Length*3,1);
+% y(1:S.Length) = S.A;
+
+% *3 für das Zeropadding
 T_ges = S.Tinterval*S.Length;
+
 f_T = 1/S.Tinterval;
 
-FFTshiftplot(sin_modem.A,T_ges,f_T,4,'r',3)
+
+FFTshiftplotZP(S.B,T_ges,f_T,4,'r',3)
+
+Tmin = 41.4 * 10^-6;
+Tmax = 61.1 * 10^-6;
+
+
+dfmax = 0.5 * (1/Tmin - 1/Tmax)
+
+
+K_FM = 2*pi*dfmax
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %Alte versuche
