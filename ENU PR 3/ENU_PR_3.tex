@@ -156,7 +156,17 @@
     
     \subsection{Theorie zur FM-Demodulation}
     \begin{quote}
-        
+        Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
+        Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
+        Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
+        einem positiven Rechteck wird und jede negative zu einem Negativen.\\
+        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
+        Rechteckimpuls macht.\\
+        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
+        einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
+        Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
+        machen.
+        \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
         
     \end{quote}
     
@@ -174,10 +184,9 @@
     \subsection{Labordurchführung}
     \begin{quote}
       Das mit Hilfe von Amplitudenmodulation zu übertragende Signal soll ein
-      Sinussignal mit Amplitude von 1 V, einer Frequenz von 100 Hz, 
-      mittelwertfrei sein und von Funktionsgenerator geliefert werden.
-      Um das Signal von negativen Werten zu befreien (siehe Vorbereitung) wird
-      das Signal mit Hilfe des Adder-Moduls und der variablen DC Voltage Quelle
+      Sinussignal mit Amplitude von 1 V, einer Frequenz von 100 Hz, mittelwertfrei sein und von Funktionsgenerator geliefert 
+      werden. Um das Signal von negativen Werten zu befreien (siehe
+      Vorbereitung) wird das Signal mit Hilfe des Adder-Moduls und der variablen DC Voltage Quelle
       um ein Volt angehoben. Da das Adder-Modul den Ausgang invertiert, wird der
       Ausgang des ersten Adders auf einen zweiten Adder gegeben und der zweite
       Eingang auf Masse gelegt, um das Signal zu invertieren. //
@@ -185,6 +194,27 @@
       Multiplier-Modul verwendet. Dabei liefert das Master-Signal-Modul ein 2
       kHz Sinussignal, das als Trägersignal dient, das mit dem zu übertragenden
       Signal multipliziert wird.
+        Mit der Demodulation über einen als idealen betrachteten Kanal kann das
+        Signal durch eine erneute Multiplikation mit dem Trägersignal
+        zurückgewonnen werden.
+        
+      \begin{equation*}
+        \begin{split}
+         y_{d}(t)=u_{m}(t)cos(\omega_{c}t)=u(t)cos^{2}(\omega_{c}t)=\frac{1}{2}u(t)\cdot
+         (1+cos(2\omega_{c}t))
+         \label{eq:demodulation}
+        \end{split}
+        \end{equation*}
+        
+        In Formel \ref{eq:demodulation} kann man erkennen, dass der vordere Teil
+        bis auf den Vorfaktor 0,5 dem Basisbandsignal entspricht. Der hintere
+        Teil weist eine doppelt so hohe Frequenz auf, die man mit einem
+        entsprechend dimensionierten Filter herausfiltern kann.
+        Dabei werden auch die Signale nach der Demodulation ohne Tiefpass
+        aufgenommen und in der Auswertung mit denen mit Tiefpass verglichen.
+        Zuletzt kann man ein zweites Multiplier-Modul hinzufügen und den Ausgang
+        von diesem auf einen entsprechenden Tiefpass geben und erhält sein
+        Signal zurück.
         
     \end{quote}
 
@@ -195,8 +225,96 @@
     
     \subsection{Auswertung}
     \begin{quote}
+        Eine Veränderung der Amplitude des Basisbandsignals führt dazu, dass,
+        wenn die Amplitude zu groß wird, das Signal Anteile unter 0 bekommt.
+        Damit verändert sich die Einhüllende des modulierten Signals und eine
+        Rückgewinnung durch Demodulation ist nicht mehr möglich. Ein Beispiel
+        ist in Abb. \ref{fig:Ampl} zu sehen, wobei die Amplitude bei 2 V liegt
+        und der Offset bei 1 V.
         
+    \begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{bilder/Cos_zugrosseAmpl}
+		\end{center}
+		\caption{zu große Amplitude des Basisbandsignals}
+		\label{fig:Ampl}
+	\end{figure}
+	
+	Bei dem Offset entsteht der selbe Fehler, nur dass dieser nicht zu klein
+        sein darf. Abb. \ref{fig:Offs} zeigt die Modulation für eine Amplitude
+        von 1 V und einem Offset von 0,2 V.
+	
+	 \begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{bilder/Cos_zukleinerOffset}
+		\end{center}
+		\caption{zu kleiner Offset des Basisbandsignals}
+		\label{fig:Offs}
+	\end{figure}
         
+        In Abb. \ref{fig:Mocosinussimu} und \ref{fig:Mocosinus} sind sowohl die
+        mit Matlab simulierte, als auch die gemessene Modulation eines Cosinus
+        abgebildet. Es ist gut zu erkennen, dass die Simulation mit der Praxis
+        gut übereinstimmen. Lediglich bei der Amplitude sind versehentlich
+        unterschiedliche Werte aufgenommen worden.
+        Gut zu erkennen sind jeweils die beiden großen Peaks bei +- 2 kHz des
+        Trägersignals und die jeweils um diese 2 kHz um 100 Hz versetzten
+        Nebenpeaks des Basisbandsignals.
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:Mocosinussimu}
+                    \includegraphics[scale=0.7]{Bilder/Am_Cos_2k_100Hz_mo_simu}
+                    \caption{mit Matlab simulierte Modulation eines Cosinus}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:Mocosinus}
+                    \includegraphics[scale=0.7]{Bilder/Am_Cos_2k_100Hz_mo}
+                    \caption{gemessene Modulation eines Cosinus}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:Modreiecksimu}
+                    \includegraphics[scale=0.7]{Bilder/Am_Dre_2k_100Hz_mo_simu}
+                    \caption{mit Matlab simulierte Modulation eines
+                    Dreieck}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:Modreieck}
+                    \includegraphics[scale=0.7]{Bilder/Am_Dre_2k_100Hz_mo}
+                    \caption{gemessene Modulation eines Dreieck}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+       
         
     \end{quote}
     
@@ -209,6 +327,210 @@
     
     \subsection{Labordurchführung}
     \begin{quote}
+        \begin{tabular}{ll}
+        \end{tabular}
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:Morechtecksimu}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo_simu}
+                    \caption{mit Matlab simulierte Modulation eines Rechteck}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:Morechteck}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}
+                    \caption{gemessene Modulation eines Rechteck}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        In Abb. \ref{fig:Sprache} ist die Modulation eines Sprachsignals zu
+        sehen. Hierbei ist gut zu erkennen, dass die Nebenpeaks um die 2 kHz
+        nicht den 100 Hz entsprechen, wie bei den ersten drei Signalen. Da ein
+        Sprachsignal in einem breiteren Bereich von bis zu vier kHz liegt,
+        streut das Sprektum hier mehr um die 2 kHz.
+        
+    \begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{bilder/Sprachsignal}
+		\end{center}
+		\caption{Modulation eines Sprachsignals}
+		\label{fig:Sprache}
+	\end{figure}
+        
+        Bei der Demodulation werden zuerst die Signale ohne Tiefpass betrachtet.
+        Dabei ergibt sich bei der Multiplikation mit dem selben Cosinus ein
+        Cosinus Quadrat. Daher werden alle negativen Anteile nach oben geklappt
+        und es gibt nur noch positive Anteile. Es sind auch noch mehrere
+        Frequenzanteile enthalten, da der Cosinus mit der doppelt so hohen
+        Frequenz (siehe Formel \ref{eq:demodulation}) nicht durch den Tiefpass
+        gefiltert wurde.
+      
+         \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemocosinusoT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Cos_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemocosinusoT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Sin_2k_100Hz_mo_ohneTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemodreieckoT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Dre_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemodreieckoT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Dre_2k_100Hz_mo_ohneTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemorechteckoT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemorechteckoT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Rec_2k_100Hz_mo_ohneTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+               
+        Zuletzt wird der Tiefpass dazu geschaltet. Was passiert, wenn man die
+        Grenzfrequenz variiert und sie noch zu hoch ist, kann man in Abb.
+        \ref{fig:TPmitzugrosserGF} sehen. Das Signal ähnelt dem Basisbandsignal
+        schon eher, als zuvor.
+        
+        \begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{bilder/Demo_Sin_2k_100Hz_mo_mitTiefpasszugrosseGrenzfrequenz}
+		\end{center}
+		\caption{Demodulation mit Tiefpass mit zu großer Grenzfrequenz}
+		\label{fig:TPmitzugrosserGF}
+	    \end{figure}
+	    
+	    Mit einer niedrigeren Grenzfrequenz erhält man nahezu den Verlauf des
+	    Basisbandsignals (Abb.). Die Abweichungen erklären sich dadurch, dass
+	    
+	    \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemocosinusmT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Cos_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemocosinusmT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Sin_2k_100Hz_mo_mitTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemodreieckmT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Dre_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemodreieckmT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Dre_2k_100Hz_mo_mitTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{ll}
+        
+        \hspace{-5cm}
+            \begin{minipage}{0.6\textwidth}
+                
+                \begin{figure}[H]
+                    \label{fig:DemodreieckmT}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}
+                    \caption{gesendetes Signal}
+                \end{figure}
         
         Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
         Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
@@ -282,6 +604,7 @@
 
 
         
+            \end{minipage}
         
         
     \end{quote}
@@ -291,14 +614,25 @@
     
     \subsection{Auswertung}
     \begin{quote}
+            \begin{minipage}{0.6\textwidth}
+                \begin{figure}[H]
+                    \label{fig:DemodreieckmT2}
+                    \includegraphics[scale=0.7]{Bilder/Demo_Rec_2k_100Hz_mo_mitTiefpass}
+                    \caption{empfangenes Signal}
+                \end{figure}
+        
+            \end{minipage}
+        
+        \end{tabular}
+        \end{center}
         
         es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen
         
+               
+        es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen
     \end{quote}
     
 \end{quote}
-
-
 
 % \begin{quote}
 %     \lstinputlisting[

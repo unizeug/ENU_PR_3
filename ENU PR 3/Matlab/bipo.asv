@@ -32,7 +32,7 @@ c = cosinus(A, 0.5, fc, f_T, T_ges);
 
 
 % Moduliert
- FFTshiftplot(c.*r, T_ges, f_T, A,'r', 1)
+ FFTshiftplot(c.*d, T_ges, f_T, A,'r', 1)
 
 % modem
  %plotFFT(c.*d.*c, T_ges, f_T, A, 2)

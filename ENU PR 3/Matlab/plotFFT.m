@@ -19,7 +19,7 @@ clf(fig);
 subplot(3,1,1);
 plot(t,y);
 ylim([-3 3]);
-xlim([0 0.002]);
+xlim([0 0.05]);
 title('Zeitsignal');
 xlabel('t/s');
 ylabel('u/V');
