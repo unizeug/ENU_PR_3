@@ -563,8 +563,8 @@
         
         
         \subsubsection{Signalerzeugung}
-        \TODO{Thommy: wie haben wir die Frequenzmodulation auf dem brett gemacht?}
         \begin{quote}
+            \TODO{Thommy: wie haben wir die Frequenzmodulation auf dem brett gemacht?}
             
         \end{quote}
         
@@ -601,42 +601,44 @@
             \end{center}
             
             
-            \begin{quote}
+        \begin{quote}
                 
-                Auf $K_{FM}$ kann man, bei bekannter Eingangsamplitude, mit der minimalen und maximalen Frequenz des modulierten
-                Signals zurückschließen. Der Faktor $K_{FM}$ ist laut der FM-Modulationsformel \ref{equ:fm} proportional zur
-                min-/maximalen Frequenz des Modulierten Signals bei min-/maximaler Amplitude des Nutzsignals.
+            Auf $K_{FM}$ kann man, bei bekannter Eingangsamplitude, mit der minimalen und maximalen Frequenz des modulierten
+            Signals zurückschließen. Der Faktor $K_{FM}$ ist laut der FM-Modulationsformel \ref{equ:fm} proportional zur
+            min-/maximalen Frequenz des Modulierten Signals bei min-/maximaler Amplitude des Nutzsignals.
+            
+            
+            \begin{equation*}
+            \begin{split}
+            \\
+                \Delta f_{max} &\approx \frac{1}{2} (\frac{1}{T_{min}} - \frac{1}{T_{max}})\\
+                               &= \frac{1}{2} (\frac{1}{41,4 \mu s} -\frac{1}{61,1 \mu s})\\
+                               &= 3894 \frac{1}{s}\\
+            \\
+                K_{FM} &=\frac{2 \pi \Delta f_{max}}{A_u}\\
+                       &= \frac{2 \pi \p 3894 \frac{1}{s}}{1V}\\
+                       &= 24467 \frac{1}{Vs}
+            \\
+            \end{split}
+            \end{equation*}
+            \label{equ:}
+            
+            Die Trägerfrequenz von \si{10}{kHz} lässt dich sehr gut an dem Folgenden Spektrum \ref{fig:freq_1k} (roter Plot)
+            eines modulierten \si{1}{kHz} Sinus-Signals (blauer Plot) erkennen. Hier befindet sich die Mitte des Spektrums exakt bei
+            \si{10}{kHz} woran sich die Trägerfrequenz ablesen lässt, da das Nutzsignal (der Sinus) das frequenzspektrum
+            gleichmäßig nach rechts und links ausdehnt.
+            
+            \begin{figure}[H]
+            \centering
+                \includegraphics[scale=0.5, trim = 0.25cm 1.3cm 1cm 3.2cm, clip]{Bilder/freq_1k}
+                    \caption{Frequenzmoduliertes 1kHz Signal}
+                    \label{fig:freq_1k}
+            \end{figure}
+
                 
-                
-                \begin{equation*}
-                \begin{split}
-                \\
-                    \Delta f_{max} &\approx \frac{1}{2} (\frac{1}{T_{min}} - \frac{1}{T_{max}})\\
-                                   &= \frac{1}{2} (\frac{1}{41,4 \mu s} -\frac{1}{61,1 \mu s})\\
-                                   &= 3894 \frac{1}{s}\\
-                \\
-                    K_{FM} &=\frac{2 \pi \Delta f_{max}}{A_u}\\
-                           &= \frac{2 \pi \p 3894 \frac{1}{s}}{1V}\\
-                           &= 24467 \frac{1}{Vs}
-                \\
-                \end{split}
-                \end{equation*}
-                \label{equ:}
-                
-                Die Trägerfrequenz von \si{10}{kHz} lässt dich sehr gut an dem Folgenden Spektrum \ref{fig:freq_1k} (roter Plot)
-                eines modulierten \si{1}{kHz} Sinus-Signals (blauer Plot) erkennen. Hier befindet sich die Mitte des Spektrums exakt bei
-                \si{10}{kHz} woran sich die Trägerfrequenz ablesen lässt, da das Nutzsignal (der Sinus) das frequenzspektrum
-                gleichmäßig nach rechts und links ausdehnt.
-                
-                \begin{figure}[H]
-                \centering
-                    \includegraphics[scale=0.5, trim = 0.25cm 1.3cm 1cm 3.2cm, clip]{Bilder/freq_1k}
-                        \caption{Frequenzmoduliertes 1kHz Signal}
-                        \label{fig:freq_1k}
-                \end{figure}
-                
-                
-            \end{quote}
+        \end{quote}
+            
+        \subsubsection{}
             
             
     \end{quote}
