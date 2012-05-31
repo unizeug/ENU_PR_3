@@ -156,18 +156,6 @@
     
     \subsection{Theorie zur FM-Demodulation}
     \begin{quote}
-        Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
-        Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
-        Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
-        einem positiven Rechteck wird und jede negative zu einem Negativen.\\
-        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
-        Rechteckimpuls macht.\\
-        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
-        einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
-        Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
-        machen.
-        \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
-        
         
     \end{quote}
     
@@ -218,10 +206,6 @@
         Signal zurück.
         
     \end{quote}
-
-    
-    
-    
     
     
     \subsection{Auswertung}
@@ -235,7 +219,7 @@
         
     \begin{figure}[H]
 		\begin{center}
-			\includegraphics[width=0.8\textwidth]{bilder/Cos_zugrosseAmpl}
+			\includegraphics[width=0.8\textwidth]{Bilder/Cos_zugrosseAmpl}
 		\end{center}
 		\caption{zu große Amplitude des Basisbandsignals}
 		\label{fig:Ampl}
@@ -247,7 +231,7 @@
 	
 	 \begin{figure}[H]
 		\begin{center}
-			\includegraphics[width=0.8\textwidth]{bilder/Cos_zukleinerOffset}
+			\includegraphics[width=0.8\textwidth]{Bilder/Cos_zukleinerOffset}
 		\end{center}
 		\caption{zu kleiner Offset des Basisbandsignals}
 		\label{fig:Offs}
@@ -331,25 +315,25 @@
         
         
         
-        \hspace{-5cm}
+        \hspace{-5cm}\fbox{
             \begin{minipage}{0.6\textwidth}
                 
                 \begin{figure}[H]
-                    \label{fig:Morechtecksimu}
-                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo_simu}
+                    \label{fig:Morechtecksimu}\fbox{
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo_simu}}
                     \caption{mit Matlab simulierte Modulation eines Rechteck}
                 \end{figure}
         
-            \end{minipage}
-        
+            \end{minipage}}
+        \fbox{
             \begin{minipage}{0.6\textwidth}
                 \begin{figure}[H]
-                    \label{fig:Morechteck}
-                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}
+                    \label{fig:Morechteck}\fbox{
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}}
                     \caption{gemessene Modulation eines Rechteck}
                 \end{figure}
         
-            \end{minipage}
+            \end{minipage}}
         
         \end{tabular}
         \end{center}
