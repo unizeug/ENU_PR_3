@@ -10,7 +10,7 @@
 \newcommand{\pdftitle}{Nachrichtenuebertragung\ Praktikum\ 03}
 \newcommand{\prototitle}{Praktikum 03 \\ Statistische Nachrichtentheorie}
 
-\input{../../packages/tu_header_9}
+\input{../../packages/tu_header_8}
 
 
 % \lstlistoflistings
@@ -262,7 +262,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:Mocosinussimu}
@@ -272,7 +272,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:Mocosinus}
                     \includegraphics[scale=0.7]{Bilder/Am_Cos_2k_100Hz_mo}
@@ -288,7 +288,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:Modreiecksimu}
@@ -299,7 +299,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:Modreieck}
                     \includegraphics[scale=0.7]{Bilder/Am_Dre_2k_100Hz_mo}
@@ -311,29 +311,28 @@
         \end{tabular}
         \end{center}
       
-      \TODO{Thommy: kannst du die Grafiken noch mal hübsch machen? (ne fbox macht nen kästchen drum)}
         \begin{center}
         \begin{tabular}{ll}
       
-        \hspace{-5cm}\fbox{
-            \begin{minipage}{0.6\textwidth}
+        \hspace{-5cm}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
-                    \label{fig:Morechtecksimu}\fbox{
-                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo_simu}}
+                    \label{fig:Morechtecksimu}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo_simu}
                     \caption{mit Matlab simulierte Modulation eines Rechteck}
                 \end{figure}
         
-            \end{minipage}}
-        \fbox{
-            \begin{minipage}{0.6\textwidth}
+            \end{minipage}
+    
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
-                    \label{fig:Morechteck}\fbox{
-                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}}
+                    \label{fig:Morechteck}
+                    \includegraphics[scale=0.7]{Bilder/Am_Rec_2k_100Hz_mo}
                     \caption{gemessene Modulation eines Rechteck}
                 \end{figure}
         
-            \end{minipage}}
+            \end{minipage}
         
         \end{tabular}
         \end{center}
@@ -364,7 +363,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemocosinusoT}
@@ -374,7 +373,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemocosinusoT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Sin_2k_100Hz_mo_ohneTiefpass}
@@ -390,7 +389,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemodreieckoT}
@@ -400,7 +399,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemodreieckoT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Dre_2k_100Hz_mo_ohneTiefpass}
@@ -416,7 +415,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemorechteckoT}
@@ -426,7 +425,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemorechteckoT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Rec_2k_100Hz_mo_ohneTiefpass}
@@ -452,13 +451,15 @@
 	    \end{figure}
 	    
 	    Mit einer niedrigeren Grenzfrequenz erhält man nahezu den Verlauf des
-	    Basisbandsignals (Abb.). Die Abweichungen erklären sich dadurch, dass
+	    Basisbandsignals (Abb.). Die Abweichungen erklären sich dadurch, dass der
+	    Tiefpass nicht eine unendliche Steilheit besitzt und nicht alle Frequenzen
+	    über 100 Herz herausfiltert.
 	    
 	    \begin{center}
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemocosinusmT}
@@ -468,7 +469,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemocosinusmT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Sin_2k_100Hz_mo_mitTiefpass}
@@ -484,7 +485,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemodreieckmT}
@@ -494,7 +495,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemodreieckmT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Dre_2k_100Hz_mo_mitTiefpass}
@@ -510,7 +511,7 @@
         \begin{tabular}{ll}
         
         \hspace{-5cm}
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 
                 \begin{figure}[H]
                     \label{fig:DemodreieckmT}
@@ -520,7 +521,7 @@
         
             \end{minipage}
         
-            \begin{minipage}{0.6\textwidth}
+            \begin{minipage}{0.67\textwidth}
                 \begin{figure}[H]
                     \label{fig:DemodreieckmT2}
                     \includegraphics[scale=0.7]{Bilder/Demo_Rec_2k_100Hz_mo_mitTiefpass}
@@ -571,7 +572,7 @@
             \begin{tabular}{ll}
             
             \hspace{-3.3cm}
-                \begin{minipage}{0.6\textwidth}
+                \begin{minipage}{0.67\textwidth}
                     
                     \begin{figure}[H]
                         \label{fig:Tmax}
@@ -581,7 +582,7 @@
             
                 \end{minipage}
             
-                \begin{minipage}{0.6\textwidth}
+                \begin{minipage}{0.67\textwidth}
                     \begin{figure}[H]
                         \label{fig:Tmin}
                         \includegraphics[scale=0.25, trim = 0mm 0mm 0mm 0mm, clip]{Bilder/Tmin}
