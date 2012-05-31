@@ -310,6 +310,7 @@
         \end{tabular}
         \end{center}
       
+      \TODO{Thommy: kannst du die Grafiken noch mal hübsch machen? (ne fbox macht nen kästchen drum)}
         \begin{center}
         \begin{tabular}{ll}
       
@@ -528,7 +529,7 @@
             \end{minipage}
         
         \end{tabular}
-        \end{center}        
+        \end{center}
         
     \end{quote}
     
@@ -552,6 +553,16 @@
         Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
         machen.
         \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
+        
+        \subsubsection{Signalerzeugung}
+        \TODO{Thommy: wie haben wir die Frequenzmodulation auf dem brett gemacht?}
+        \begin{quote}
+            
+        \end{quote}
+
+
+        
+        
         
         \subsubsection{FM Frequenzanalyse}
             Untersucht weiterhin das Spektrum des FM-Signals und bestimmt die Trägerfrequenz $f_c$ sowie die
@@ -605,8 +616,16 @@
                 \end{equation*}
                 
                 
-                Trägerfrequenz ist 10kHz
+                Die Trägerfrequenz von \si{10}{kHz} lässt dich sehr gut an dem Folgenden Spektrum \ref{fig:freq_1k} (roter Plot)
+                eines modulierten \si{1}{kHz} Sinus-Signals (blauer Plot) erkennen. Hier befindet sich die Mitte des Spektrums exakt bei
+                \si{10}{kHz}.
                 
+                \begin{figure}[H]
+                \centering
+                    \includegraphics[scale=0.5, trim = 0.25cm 1.3cm 1cm 3.2cm, clip]{Bilder/freq_1k}
+                        \caption{Frequenzmoduliertes 1kHz Signal}
+                        \label{fig:freq_1k}
+                \end{figure}
                 
                 
             \end{quote}
@@ -620,9 +639,9 @@
     \subsection{Auswertung}
     \begin{quote}
         
-        es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen. Das
+        Es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen. Das
         liegt wahrscheinlich daran, dass die Trägerfrequenz sehr hoch ist und der Puls des Twinpulse-Generators mit \si{8}{ms}
-        ähnlich breit ist wie die 
+        ähnlich breit ist wie eine Halbwelle des modulierten Signals.
         
         frequenzhub
         trägerfrequenz
