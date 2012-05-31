@@ -8,8 +8,8 @@ function FFTshiftplot(y, T_ges, f_T, A,farbe, fignum)
 % fignum    - Nummer der figure
 
 
-% Zeropadding Faktor
-zpf = 1;
+% Zeropadding Faktor (1: kein Padding)
+zpf = 3;
 
 temp = zeros(length(y)*zpf,1);
 temp(1:length(y)) = y;
@@ -40,20 +40,20 @@ subplot(3,1,1);
 plot(t,y,farbe);
 AXIS([0 T_ges/zpf min(y)*1.21 max(y)*1.2])
 title('Zeitsignal');
-xlabel('t/s');
-ylabel('u/V');
+xlabel('t [s]');
+ylabel('u [V]');
 %Darstellung des Amplitudenspektrums
 subplot(3,1,2);
-STEM(f_DFT, y_DFT_abs,'.-');
-AXIS([-12000 12000 0 max(y_DFT_abs)*1.2]);
+stem(f_DFT, y_DFT_abs,'.-');
+AXIS([-20000 20000 0 max(y_DFT_abs)*1.2]);
 %xlim ([-500 500])
 title('Amplitudenspektrum');
-xlabel('f/Hz');
-ylabel('A(f)[dB]');    
+xlabel('f [Hz]');
+ylabel('A(f)');    
 %Darstellung des Phasenspektrums
 subplot(3,1,3);
 plot(f_DFT, y_DFT_phase);
 %AXIS([0 4E3 0 0.4E-5])
 title('Phasenspektrum');
-xlabel('f/Hz');
-ylabel('phi(f)');
+xlabel('f [Hz]');
+ylabel('pi(f)');

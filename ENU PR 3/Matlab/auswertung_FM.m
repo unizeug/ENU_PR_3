@@ -25,13 +25,13 @@ f200_ = load('../Messwerte/fre_200Hz_2V.mat');
 f50_05 = load('../Messwerte/fre_50Hz_05V.mat');
 f50_1 = load('../Messwerte/fre_50Hz_1V.mat');
 f50_2 = load('../Messwerte/fre_50Hz_2V.mat');
-% spra = load('../Messwerte/fre_A_1k_B_10.mat');
+f1 = load('../Messwerte/fre_A_1k_B_10.mat');
 % spra = load('../Messwerte/fre_A_1k_B_10_modem_A_VCOout_B_comp.mat');
 fcomp = load('../Messwerte/fre_A_1k_B_10_modem_comp.mat');
 ffil = load('../Messwerte/fre_A_1k_B_10_modem_fil.mat');
 fTwPu = load('../Messwerte/fre_A_1k_B_10_modem_TwPu.mat');
 % spra = load('../Messwerte/fre_A_1k_B_10_spec.mat');
-% spra = load('../Messwerte/fre_A_3k_B_10.mat');
+f3 = load('../Messwerte/fre_A_3k_B_10.mat');
 % spra = load('../Messwerte/fre_A_3k_B_10_spec.mat');
 
 
@@ -39,7 +39,7 @@ fTwPu = load('../Messwerte/fre_A_1k_B_10_modem_TwPu.mat');
 % ich denke mal, man muss T_ges und f_T nicht jedes mal neu berechnen. wir
 % haben ja nihct an den aufnahmeeinstellungen geändert oder? 
 
-S = fcomp;
+S = f1;
 
 
 % 
@@ -53,13 +53,13 @@ T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
 
-FFTshiftplotZP(S.B,T_ges,f_T,4,'r',3)
+FFTshiftplotZP(S.B,T_ges,f_T,4,'b',3)
 
-S = fTwPu;
+S = f1;
 T_ges = S.Tinterval*S.Length;
 
 f_T = 1/S.Tinterval;
-FFTshiftplotZP(S.B,T_ges,f_T,4,'r',4)
+FFTshiftplotZP(S.B,T_ges,f_T,4,'b',4)
 
 Tmin = 41.4 * 10^-6;
 Tmax = 61.1 * 10^-6;
