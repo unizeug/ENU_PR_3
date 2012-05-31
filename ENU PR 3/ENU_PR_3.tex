@@ -146,6 +146,7 @@
         \\
         \end{split}
         \end{equation*}
+        \label{equ:fm}
         
         Von diesem Modulierten Signal ($u_m$) haben wir noch, zum späteren Vergleich, mit Hilfe von Matlab das Amplitudenspektrum
         bestimmt.
@@ -559,14 +560,11 @@
         \begin{quote}
             
         \end{quote}
-
-
         
         
         
-        \subsubsection{FM Frequenzanalyse}
-            Untersucht weiterhin das Spektrum des FM-Signals und bestimmt die Trägerfrequenz $f_c$ sowie die
-            Proportionalitätskonstante $K_{FM}$. Nehmt dabei zum späteren Vergleich das Spektrum für $f_u$ = 1kHz und $A_u$ = 1V auf.
+        \subsubsection{Trägerfrequenz $f_c$ \& Proportionalitätskonstante $K_{FM}$}
+            
             
             
             \begin{center}
@@ -589,7 +587,7 @@
                         \includegraphics[scale=0.25, trim = 0mm 0mm 0mm 0mm, clip]{Bilder/Tmin}
                         \caption{Tmin = $41,4 \mu s$}
                     \end{figure}
-            
+                    
                 \end{minipage}
             
             \end{tabular}
@@ -598,7 +596,7 @@
             
             \begin{quote}
                 
-                
+                auf $K_{FM}$ kann man mit dem minimalen und M
                 
                 
                 \begin{equation*}
@@ -614,11 +612,12 @@
                 \\
                 \end{split}
                 \end{equation*}
-                
+                \label{equ:}
                 
                 Die Trägerfrequenz von \si{10}{kHz} lässt dich sehr gut an dem Folgenden Spektrum \ref{fig:freq_1k} (roter Plot)
                 eines modulierten \si{1}{kHz} Sinus-Signals (blauer Plot) erkennen. Hier befindet sich die Mitte des Spektrums exakt bei
-                \si{10}{kHz}.
+                \si{10}{kHz} woran sich die Trägerfrequenz ablesen lässt, da das Nutzsignal (der Sinus) das frequenzspektrum
+                gleichmäßig nach rechts und links ausdehnt.
                 
                 \begin{figure}[H]
                 \centering
@@ -640,8 +639,8 @@
     \begin{quote}
         
         Es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen. Das
-        liegt wahrscheinlich daran, dass die Trägerfrequenz sehr hoch ist und der Puls des Twinpulse-Generators mit \si{8}{ms}
-        ähnlich breit ist wie eine Halbwelle des modulierten Signals.
+        liegt wahrscheinlich daran, dass die Trägerfrequenz sehr hoch ist und der Puls des Twinpulse-Generators mit \si{5}{\micro
+        \seconds} ähnlich breit ist wie eine Halbwelle des modulierten Signals.
         
         frequenzhub
         trägerfrequenz
