@@ -544,9 +544,18 @@
     
     \subsection{Labordurchführung}
     \begin{quote}
-        Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
-        Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
-        Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
+    
+        Die Frequenzmodulation wird mit Hilfe des VCO-Moduls auf dem ETT 101
+        durchgeführt. Dabei wird ein 3 kHz Sinussignal mit der Amplitude 1
+        Volt aus dem Frequenzgenerator auf den VCO Input gelegt, der FREQ-Controller auf
+        die mittlere Position gestellt, der Schalter auf Lo gestellt
+        (Frequenzbereich von 1 bis 15 kHz) und das Gain auf zwei Drittel des
+        Maximalwerts gestellt.
+        Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen
+        werden und $K_{FM}$ und $\Deltaf_{max}$ anhand der Verläufe von Nutz-
+        und Trägersignal bestimmt werden.
+         Wir haben im praktikum die
+        FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
         einem positiven Rechteck wird und jede negative zu \si{0}{\volt}q.\\
         Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
         Rechteckimpuls macht.\\
