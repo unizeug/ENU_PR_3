@@ -28,7 +28,7 @@ figure(fignum);
 subplot(3,1,1);
 plot(t,y,farbe);
 %AXIS([0 0.015 -2*A-0.5 2*A+0.5])
-xlim ([0 0.05])
+xlim ([0 2 -3 3])
 %ylim([-3 3])
 title('Zeitsignal');
 xlabel('t/s');

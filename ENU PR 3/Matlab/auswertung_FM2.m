@@ -39,14 +39,14 @@ f1comp = load('../Messwerte/fre_A_1k_B_10_modem_comp.mat');
 % ich denke mal, man muss T_ges und f_T nicht jedes mal neu berechnen. wir
 % haben ja nichts an den aufnahmeeinstellungen geändert oder? 
 
-S = A;
+S = f1comp;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
- FFTshiftplotZP2(S.A,T_ges,f_T,4,'b',1)
+ FFTshiftplotZP2(S.B,T_ges,f_T,4,'b',1)
 
 
-S = spra;
+S = f1TwPu;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 

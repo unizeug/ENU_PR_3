@@ -32,7 +32,7 @@ c = cosinus(A, 0.5, fc, f_T, T_ges);
 
 
 % Moduliert
- FFTshiftplot(c.*r, T_ges, f_T, A,'r', 1)
+%  FFTshiftplot(c.*r, T_ges, f_T, A,'r', 1)
 
 % modem
  %plotFFT(c.*d.*c, T_ges, f_T, A, 2)
@@ -47,30 +47,30 @@ c = cosinus(A, 0.5, fc, f_T, T_ges);
 
 %      // FM //      %
 
-% T_ges = 0.5;
-% 
-% f = 1000;
-% t = 0:(1/f_T):T_ges;
-% N = round(f_T*T_ges);
-% um = zeros(1,N);
-% 
-% u = cos(2*pi*f.*t); %cosinus(A, 0.5, f, f_T, T_ges);
-% 
-% K_FM = 1/200;
-% 
-% 
-% integ = cumsum(u);
-% 
-% 
-% 
-% for k = 1:N
-% 
-%     % phi = 2*pi*f_c*t + integ(t)
-%     um(k) = A * cos(2*pi*fc*t(k) + K_FM *integ(k));
-%     
-% end;
-% 
-% 
-% plotFFT(u, T_ges, f_T, A, 2)
-% 
-% FFTshiftplot(um, T_ges, f_T, A,'r', 3)
+T_ges = 0.5;
+
+f = 1000;
+t = 0:(1/f_T):T_ges;
+N = round(f_T*T_ges);
+um = zeros(1,N);
+
+u = cos(2*pi*f.*t); %cosinus(A, 0.5, f, f_T, T_ges);
+
+K_FM = 1/200;
+
+
+integ = cumsum(u);
+
+
+
+for k = 1:N
+
+    % phi = 2*pi*f_c*t + integ(t)
+    um(k) = A * cos(2*pi*fc*t(k) + K_FM *integ(k));
+    
+end;
+
+
+plotFFT(u, T_ges, f_T, A, 2)
+
+FFTshiftplot(um, T_ges, f_T, A,'r', 3)
