@@ -26,13 +26,13 @@ f50_05 = load('../Messwerte/fre_50Hz_05V.mat');
 f50_1 = load('../Messwerte/fre_50Hz_1V.mat');
 f50_2 = load('../Messwerte/fre_50Hz_2V.mat');
 f1 = load('../Messwerte/fre_A_1k_B_10.mat');
-% spra = load('../Messwerte/fre_A_1k_B_10_modem_A_VCOout_B_comp.mat');
+f1VCOcomp = load('../Messwerte/fre_A_1k_B_10_modem_A_VCOout_B_comp.mat');
 f1comp = load('../Messwerte/fre_A_1k_B_10_modem_comp.mat');
 f1fil = load('../Messwerte/fre_A_1k_B_10_modem_fil.mat');
 f1TwPu = load('../Messwerte/fre_A_1k_B_10_modem_TwPu.mat');
-fispec = load('../Messwerte/fre_A_1k_B_10_spec.mat');
+%f1spec = load('../Messwerte/fre_A_1k_B_10_spec.mat');
 f3 = load('../Messwerte/fre_A_3k_B_10.mat');
-% spra = load('../Messwerte/fre_A_3k_B_10_spec.mat');
+f3spec = load('../Messwerte/fre_A_3k_B_10_spec.mat');
 
 
 
