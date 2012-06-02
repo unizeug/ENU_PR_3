@@ -156,9 +156,12 @@
         entsprechend dimensionierten Filter herausfiltern kann.
         Dabei werden auch die Signale nach der Demodulation ohne Tiefpass
         aufgenommen und in der Auswertung mit denen mit Tiefpass verglichen.
-        Zuletzt kann man ein zweites Multiplier-Modul hinzufügen und den Ausgang
-        von diesem auf einen entsprechenden Tiefpass geben und erhält sein
-        Signal zurück.
+        In Formel \ref{eq:demodulation} kann man weiterhin erkennen, dass das
+        modulierte Signal zum einen aus dem Trägersignal mit seiner Frequenz und
+        dem Nutzsignal und seiner Frequenz besteht und dies im
+        Amplitudenstprektrum auch zu erwarten ist.\\
+        Zuletzt kann man ein
+        zweites Multiplier-Modul hinzufügen und den Ausgang von diesem auf einen entsprechenden Tiefpass geben und erhält sein Signal zurück.
         
     \end{quote}
     
@@ -199,7 +202,7 @@
         unterschiedliche Werte aufgenommen worden.
         Gut zu erkennen sind jeweils die beiden großen Peaks bei +- 2 kHz des
         Trägersignals und die jeweils um diese 2 kHz um 100 Hz versetzten
-        Nebenpeaks des Basisbandsignals.
+        Nebenpeaks des Basisbandsignals, wie es von der Theorie erwartet wurde.  
         
         \begin{center}
         \begin{tabular}{ll}
@@ -394,8 +397,8 @@
 	    \end{figure}
 	    
 	    Mit einer niedrigeren Grenzfrequenz erhält man nahezu den Verlauf des
-	    Basisbandsignals (Abb.). Die Abweichungen erklären sich dadurch, dass der
-	    Tiefpass nicht eine unendliche Steilheit besitzt und nicht alle Frequenzen
+	    Basisbandsignals (z.B. Abb. \ref{fig:DemocosinusmT2}). Die Abweichungen
+	    erklären sich dadurch, dass der Tiefpass nicht eine unendliche Steilheit besitzt und nicht alle Frequenzen
 	    über 100 Herz herausfiltert.
 	    
 	    \begin{center}
@@ -492,24 +495,44 @@
         der Amplitude 1 Volt aus dem Frequenzgenerator auf den VCO Input gelegt, der FREQ-Controller auf die mittlere Position
         gestellt, der Schalter auf Lo gestellt (Frequenzbereich von 1 bis 15 kHz) und das Gain auf zwei Drittel des Maximalwerts
         gestellt.
-        Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen werden und $K_{FM}$ und $\Delta f_{max}$ anhand der
-        Verläufe von Nutz- und Trägersignal bestimmt werden.\\
-        Zur FM-Demodulation haben wir im praktikum die FM-PFM-Umwandlung genutzt, da es ein relativ einfaches Verfahren ist.
-        Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt.
+        Dabei sollen die Auswirkungen einer Variation des Nutzsignals in der
+        Frequenz und der Amplitude untersucht werden. Für die Amplitude wird
+        nach dem Parsevalschen Theorem erwartet, dass sich die Amplituden im
+        Zeit- und Frequenzbereich proportional verhält.
+         \TODO{egal: wir haben dann mehrere werte aufgenommen und \ldots auswirkungen \ldots tolle erkentnisse gewonnen}
+   		 
+    
+        Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen
+        werden und $K_{FM}$ und $\Delta f_{max}$ anhand der Verläufe von Nutz- und Trägersignal bestimmt werden.\\
+        Zur FM-Demodulation haben wir im Praktikum die FM-PFM-Umwandlung
+        genutzt, da es ein relativ einfaches Verfahren ist.
+        Hierbei wird das Signal zunächst durch einen Komparator in eine polare
+        Rechteckfolge umgewandelt.
         Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
         einem positiven Rechteck wird und jede negative zu \si{0}{\volt} (siehe Abb.
         \ref{fig:fct Com}).\\
+        Das modulierte Signal hat Bereiche in denen die Frequenz höher ist, dass
+        heißt die Nulldurchgänge häufiger und Bereiche in denen die Frequenz
+        niedrieger ist, dass heißt die Nulldurchgänge seltener sind. Bei der
+        Demodulation wird dies ausgenutzt, indem ein Komparator wie oben
+        beschrieben bei jedem positiven Signalverlauf eine  eins ausgibt und bei
+        negativem Signalverlauf eine null. Dabei variiert die breite der
+        Rechteckt mit der Frequenz. Nach dem Komperator gibt der Twin Pulse
+        Generator bei jeder steigender Flanke ein Puls fester breite aus, dass
+        heißt die Pulse haben im Anschluss unterschiedliche Abstände.\\
         Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke einen
-        Deltaimpuls macht bzw. in Realität ein Rechteckimpuls mit fester Breite. Die Regler Width und Delay, die für die Breite
-        der Rechteckimpulse und die Verzögerung zwischen den beiden Rechteckimpulsen steht, damit das Rechteck möglicht nahe an
-        einen Deltaimpuls heran kmmt und, damit der Puls auf dem Ausgang Q2, den wir ausschließlich benutzen, mit möglichst wenig
-        Verzögerung ausgegeben wird.\\
+        Deltaimpuls macht bzw. in Realität ein Rechteckimpuls mit fester Breite.
+        Aellerdings variieren die Abstände der Pulse in Abhängigkeit der
+        Frequenz.Die Regler Width und Delay, die für die Breite der
+        Rechteckimpulse und die Verzögerung zwischen den beiden Rechteckimpulsen
+        steht, damit das Rechteck möglichst nahe an einen Deltaimpuls heran
+        kommt und, damit der Puls auf dem Ausgang Q2, den wir ausschließlich
+        benutzen, mit möglichst wenig Verzögerung ausgegeben wird.\\
         Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
         machen.
         
-        \TODO{egal: wir haben dann mehrere werte aufgenommen und \ldots auswirkungen \ldots tolle erkentnisse gewonnen}
-    \end{quote}
-    
+      \end{quote}  
+     
     \subsection{Auswertung}
     \begin{quote}
         
@@ -767,25 +790,25 @@
             \end{tabular}
             \end{center}
         
+        Zuletzt ist in Abb. \ref{fig:filter} das tiefpass-gefilterte
+        Signal zu erkennen, das dann dem demodulierten Signal, also dem
+        Nutzsignal entsprechen soll. Auffällig ist, dass das Signal im Vergleich
+        zu Demodulation bei der AM deutlich abweicht vom eigentlich gesendeten
+        Signal. 
         
-        
+        \begin{figure}[H]
+			\begin{center}
+			\includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm,clip]{Bilder/f1filB}
+			\end{center}
+		\caption{demoduliertes Signal}
+		\label{fig:filter}
+	    \end{figure}
         
         frequenzhub
         trägerfrequenz
         signalfrequenz
         $\beta$
         Basisband
-        
-        Das modulierte Signal hat Bereiche in denen die Frequenz höher ist, dass
-        heißt die Nulldurchgänge häufiger und Bereiche in denen die Frequenz
-        niedrieger ist, dass heißt die Nulldurchgänge seltener sind. Bei der
-        Demodulation wird dies ausgenutzt, indem ein Komparator wie oben
-        beschrieben bei jedem positiven Signalverlauf eine  eins ausgibt und bei
-        negativem Signalverlauf eine null. Dabei variiert die breite der
-        Rechteckt mit der Frequenz. Nach dem Komperator gibt der Twin Pulse
-        Generator bei jeder steigender Flanke ein Puls fester breite aus, dass
-        heißt die Pulse haben im Anschluss unterschiedliche Abstände, wie in
-        Abb. zu sehen.\\
        
         
     \end{quote}
