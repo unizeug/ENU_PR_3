@@ -39,7 +39,7 @@ f1comp = load('../Messwerte/fre_A_1k_B_10_modem_comp.mat');
 % ich denke mal, man muss T_ges und f_T nicht jedes mal neu berechnen. wir
 % haben ja nichts an den aufnahmeeinstellungen geändert oder? 
 
-S = spra;
+S = A;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
