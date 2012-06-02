@@ -100,17 +100,26 @@
     
     \subsection{Theorie zur FM-Demodulation}
     \begin{quote}
-%         Wir haben im praktikum die FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches
-%         Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als
-%         Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
-%         einem positiven Rechteck wird und jede negative zu einem Negativen.\\
-%         Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
-%         Rechteckimpuls macht.\\
-%         Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
-%         einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
-%         Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
-%         machen.
-%         \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
+        
+        Die grundlegende Abfolge der Verwendeten FM-Demodulation ist wie Folgt:\\
+        \vspace{0.1em}
+        
+        \begin{itemize}
+          \item Wir starten mit einem modulierten Signal, bei dem die Frequenz proportional steigt wenn das Nutzsignal positiv war
+                und bei negativen werten des Eingangssignals wieder sinkt.
+          \item Aus diesem Signal wird (z.B. per Comparator und Pulsgenerator) nach jeder Periode (idealer weise) ein Deltaimpuls
+                erzeugt.
+          \item Diese Pulsvolge wird anschließend Tiefpassgefiltert, was sich gut anhand eines CR-Gliedes (C-in Reihe, R-Paralel)
+                erklären lässt.
+          \item Der kondensator läd sich bei kleineren Abständen der Pulse schneller auf als er siche wieder entläd und bei
+                größeren Abständen entläd er sich schneller als er sich aufläd.
+          \item Damit steigt die Spannung über dem Kondensator für kürzere abstände der Nulldurchgänge (also höhere Frequenzen)
+                und sie sinkt für kleinere Abstände (also niedrigere Frequenzen).\\
+        \end{itemize}
+        
+        \vspace{-1em}
+        Dieses Verhalten ist das exakte gegenteil der modulation und extrahiert somit das Nutzsignal wieder aus dem Träger.
+        
         
     \end{quote}
     
