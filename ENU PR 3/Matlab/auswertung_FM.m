@@ -32,32 +32,32 @@ f1fil = load('../Messwerte/fre_A_1k_B_10_modem_fil.mat');
 f1TwPu = load('../Messwerte/fre_A_1k_B_10_modem_TwPu.mat');
 %f1spec = load('../Messwerte/fre_A_1k_B_10_spec.mat');
 f3 = load('../Messwerte/fre_A_3k_B_10.mat');
-f3spec = load('../Messwerte/fre_A_3k_B_10_spec.mat');
+%f3spec = load('../Messwerte/fre_A_3k_B_10_spec.mat');
 
 
 
 % ich denke mal, man muss T_ges und f_T nicht jedes mal neu berechnen. wir
 % haben ja nichts an den aufnahmeeinstellungen geändert oder? 
 
-S = f200_05;
+S = f1TwPu;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
 FFTshiftplotZP(S.B,T_ges,f_T,4,'b',1)
 
 
-S = f200_1;
+S = f1comp;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
 FFTshiftplotZP(S.B,T_ges,f_T,4,'b',2)
 
 
-S = f200_2;
+S = f1comp;
 T_ges = S.Tinterval*S.Length;
 f_T = 1/S.Tinterval;
 
-FFTshiftplotZP(S.B,T_ges,f_T,4,'b',3)
+FFTshiftplotZP(S.A,T_ges,f_T,4,'b',3)
 
 
 Tmin = 4 * 41.4 * 10^-6;
