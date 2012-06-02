@@ -488,32 +488,24 @@
     \subsection{Labordurchführung}
     \begin{quote}
     
-        Die Frequenzmodulation wird mit Hilfe des VCO-Moduls auf dem ETT 101
-        durchgeführt. Dabei wird ein 3 kHz Sinussignal mit der Amplitude 1
-        Volt aus dem Frequenzgenerator auf den VCO Input gelegt, der FREQ-Controller auf
-        die mittlere Position gestellt, der Schalter auf Lo gestellt
-        (Frequenzbereich von 1 bis 15 kHz) und das Gain auf zwei Drittel des
-        Maximalwerts gestellt.
-        Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen
-        werden und $K_{FM}$ und $\Deltaf_{max}$ anhand der Verläufe von Nutz-
-        und Trägersignal bestimmt werden.\\
-         Wir haben im praktikum die
-        FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches Verfahren ist. 
-        Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. 
-        Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit
-        jede positive Halbwelle des modulierten Signals zu einem positiven 
-        Rechteck wird und jede negative zu \si{0}{\volt} (siehe Abb.
-        \ref{fig:fct Com})\\
-        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
-        Rechteckimpuls macht. Die Regler Width und Delay, die für die Breite
-        der Rechteckimpulse und die Verzögerung zwischen den beiden
-        Rechteckimpulsen steht, soll dabei auf das Minimum eingestellt werden.\\
-        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich,
-        noch konnte es uns im Praktikum einleuchtend erklärt werden. Er wird
-        wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
+        Die Frequenzmodulation wird mit Hilfe des VCO-Moduls auf dem ETT 101 durchgeführt. Dabei wird ein 3 kHz Sinussignal mit
+        der Amplitude 1 Volt aus dem Frequenzgenerator auf den VCO Input gelegt, der FREQ-Controller auf die mittlere Position
+        gestellt, der Schalter auf Lo gestellt (Frequenzbereich von 1 bis 15 kHz) und das Gain auf zwei Drittel des Maximalwerts
+        gestellt.
+        Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen werden und $K_{FM}$ und $\Delta f_{max}$ anhand der
+        Verläufe von Nutz- und Trägersignal bestimmt werden.\\
+        Zur FM-Demodulation haben wir im praktikum die FM-PFM-Umwandlung genutzt, da es ein relativ einfaches Verfahren ist.
+        Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt.
+        Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
+        einem positiven Rechteck wird und jede negative zu \si{0}{\volt} (siehe Abb.
+        \ref{fig:fct Com}).\\
+        Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke einen
+        Deltaimpuls macht bzw. in Realität ein Rechteckimpuls mit fester Breite. Die Regler Width und Delay, die für die Breite
+        der Rechteckimpulse und die Verzögerung zwischen den beiden Rechteckimpulsen steht, damit das Rechteck möglicht nahe an
+        einen Deltaimpuls heran kmmt und, damit der Puls auf dem Ausgang Q2, den wir ausschließlich benutzen, mit möglichst wenig
+        Verzögerung ausgegeben wird.\\
         Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
         machen.
-        \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
         
         \TODO{egal: wir haben dann mehrere werte aufgenommen und \ldots auswirkungen \ldots tolle erkentnisse gewonnen}
     \end{quote}
