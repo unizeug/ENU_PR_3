@@ -553,14 +553,21 @@
         Maximalwerts gestellt.
         Von diesem Signal sollte das Spektrum mit dem Picoscope aufgenommen
         werden und $K_{FM}$ und $\Deltaf_{max}$ anhand der Verläufe von Nutz-
-        und Trägersignal bestimmt werden.
+        und Trägersignal bestimmt werden.\\
          Wir haben im praktikum die
-        FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches Verfahren ist. Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit jede positive Halbwelle des modulierten Signals zu
-        einem positiven Rechteck wird und jede negative zu \si{0}{\volt}q.\\
+        FM-PFM-Umwandlung als Methode zur FM-Demodulation genutzt, da es ein relativ einfaches Verfahren ist. 
+        Hierbei wird das Signal zunächst durch einen Comparator in eine polare Rechteckfolge umgewandelt. 
+        Als Referenz für den Comparator wird \si{0}{\volt} eingestellt, damit
+        jede positive Halbwelle des modulierten Signals zu einem positiven 
+        Rechteck wird und jede negative zu \si{0}{\volt} (siehe Abb.
+        \ref{fig:fct Com})\\
         Anschließend wird das Signal noch durch einen Twin Pulse Generator geführt, der aus jeder steigenden Flanke ein
-        Rechteckimpuls macht.\\
-        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich, noch konnte es uns im Praktikum
-        einleuchtend erklärt werden. Er wird wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
+        Rechteckimpuls macht. Die Regler Width und Delay, die für die Breite
+        der Rechteckimpulse und die Verzögerung zwischen den beiden
+        Rechteckimpulsen steht, soll dabei auf das Minimum eingestellt werden.\\
+        Wofür der Twin Pulse Generator gebraucht wird ist leider weder aus dem Skrip ersichtlich,
+        noch konnte es uns im Praktikum einleuchtend erklärt werden. Er wird
+        wohl ``wegen irgendwelcher Feedback-Sachen oder so''\footnotemark gebraucht.\\
         Zuletzt wird das Signal noch tiefpass-gefiltert, um aus der Häufigkeit der Pulse wieder das Analoge ausgangssignal zu
         machen.
         \footnotetext{Aussage des Tutors im NUE-Praktikum am 16.05.2012}
@@ -697,6 +704,69 @@
     \subsection{Parkplatz}
     \begin{quote}
         
+        
+        \begin{figure}[H]
+			\begin{center}
+			\includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm,clip]{Bilder/spraFunktionsweiseComparator}
+			\end{center}
+		\caption{Funktionsweise des Komparators}
+		\label{fig:fct Com}
+	    \end{figure}
+        
+        Die Umwandlung des Ausgangs des Komparator-Moduls mit dem Twin Pulse
+        Generator ist von Abb. \ref{fig:AusgangCom} nach Abb. \ref{fig:TwPu}
+        zu sehen.
+        
+         \begin{center}
+            \begin{tabular}{ll}
+            
+            \hspace{-5cm}
+                \begin{minipage}{0.67\textwidth}
+                    \begin{figure}[H]
+                        \label{fig:AusgangCom}
+                        \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/AusgangComparator}
+                        \caption{Ausgang Komparator}
+                    \end{figure}
+                \end{minipage}
+                
+                \begin{minipage}{0.67\textwidth}
+                    \begin{figure}[H]
+                        \label{fig:TwPu}
+                        \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f1TwPuB}
+                        \caption{Ausgang Twin Pulse Generator-Modul 	}
+                    \end{figure}
+                \end{minipage}
+            
+            \end{tabular}
+            \end{center}
+          
+          Die Filterung des Was für eines Signals auch immer???? ist von Abb.
+          \ref{fig:vor Filter} nach Abb. \ref{fig:nach Filter} zu sehen.
+            
+         \begin{center}
+            \begin{tabular}{ll}
+            
+            \hspace{-5cm}
+                \begin{minipage}{0.67\textwidth}
+                    \begin{figure}[H]
+                        \label{fig:vor Filter}
+                        \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f1filB}
+                        \caption{Signal Welches Signal???? vor dem Filter}
+                    \end{figure}
+                \end{minipage}
+                
+                \begin{minipage}{0.67\textwidth}
+                    \begin{figure}[H]
+                        \label{fig:nach Filter}
+                        \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f1filA}
+                        \caption{Signal Welches Signal???? nach dem Filter	}
+                    \end{figure}
+                \end{minipage}
+            
+            \end{tabular}
+            \end{center}
+        
+        
         Es ließ sich kein unterschied zwischen dem Signal nach dem Comparator und dem nach dem Twin Pulse Generator erkennen. Das
         liegt wahrscheinlich daran, dass die Trägerfrequenz sehr hoch ist und der Puls des Twinpulse-Generators mit
         \SI{5}{\micro\second} ähnlich breit ist wie eine Halbwelle des modulierten Signals.
@@ -706,6 +776,8 @@
         signalfrequenz
         $\beta$
         Basisband
+        
+        
         
     \end{quote}
     
