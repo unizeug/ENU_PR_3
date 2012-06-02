@@ -657,7 +657,7 @@
                     \begin{figure}[H]
                         \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f50_05}
                         \caption{FM von \SI{50}{\hertz} mit \SI{0,5}{\volt} Amplitude}
-                        \label{fig:f100_05}
+                        \label{fig:Fre_f50_05}
                     \end{figure}
                 \end{minipage}
                 
@@ -665,7 +665,7 @@
                     \begin{figure}[H]
                         \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f100_05}
                         \caption{FM von \SI{100}{\hertz} mit \SI{0,5}{\volt} Amplitude}
-                        \label{fig:f100_1}
+                        \label{fig:Fre_f100_05}
                     \end{figure}
                 \end{minipage}
             
@@ -676,8 +676,14 @@
             \centering
                 \includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm, clip]{Bilder/f200_05}
                     \caption{FM von \SI{200}{\hertz} mit \SI{0,5}{\volt} Amplitude}
-                    \label{fig:f100_2}
+                    \label{fig:Fre_f200_05}
             \end{figure}
+            
+            
+            In den Abbildungen \ref{fig:Fre_f50_05}, \ref{fig:Fre_f100_05} und \ref{fig:Fre_f200_05} Sieht man deutlich, dass bei
+            steigender Frequenz des Nutzsignals die Frequenzanteile des modulierten Signals diskreter werden. Dies entspricht
+            genau der Theorie, da die Frequenzänderung mit steigender Nutzfrequenz schneller geht.
+            
             
         \end{quote}
 
@@ -796,8 +802,8 @@
         Signal zu erkennen, das dann dem demodulierten Signal, also dem
         Nutzsignal entsprechen soll. Auffällig ist, dass das Signal im Vergleich
         zu Demodulation bei der AM deutlich abweicht vom eigentlich gesendeten
-        Signal. 
-        
+        Signal. Da die Theorie aber besagt, dass das Signal perfekt wieder rekonstruiert wird, was uns zu dem Schluss bringt, dass
+        das  ETT 101 Board nicht sehr gut zur FM-Demodulation geeignet ist.
         \begin{figure}[H]
 			\begin{center}
 			\includegraphics[scale=0.7, trim = 35mm 100mm 35mm 95mm,clip]{Bilder/f1filB}
@@ -806,12 +812,6 @@
 		\label{fig:filter2}
 	    \end{figure}
         
-        frequenzhub
-        trägerfrequenz
-        signalfrequenz
-        $\beta$
-        Basisband
-       
         
     \end{quote}
     
